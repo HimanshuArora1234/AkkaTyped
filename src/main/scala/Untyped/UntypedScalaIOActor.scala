@@ -25,7 +25,7 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
 
     case Donate(amt) =>
       fund = fund + amt
-      sender ! "Scala.IO is grateful to you for your generous donation"
+      sender ! s"Scala.IO is grateful to you for your generous donation of $amt euros"
 
     case TicketsLeft => sender ! numberOfTickets
 
