@@ -2,17 +2,18 @@ package typed
 
 import akka.NotUsed
 import akka.actor.typed.scaladsl.Behaviors
-import akka.actor.typed.{ActorSystem, Behavior}
-import typed.TypedScalaIOActor.{BuyTicket, Donate, FundBalance, GetSchedule, TicketsLeft}
+import akka.actor.typed.{ActorRef, ActorSystem, Behavior}
+import typed.TypedScalaIOActor.{BuyTicket, Donate, FundBalance, GetSchedule, ScalaIORequest, ScalaIOResponse, TicketsLeft}
 
 object TypedMain extends App {
 
   val main: Behavior[NotUsed] =
     Behaviors.setup { context =>
 
-      val scalaIOBotActor = context.spawn(ScalaIOBot.scalaIOBotActor, "scalaIOBotActor")
+      val scalaIOBotActor: ActorRef[ScalaIOResponse]  = context.spawn(ScalaIOBot.scalaIOBotActor, "scalaIOBotActor")
 
-      val typedScalaIOActor = context.spawn(TypedScalaIOActor.typedScalaIOActor(100, 0), "typedScalaIOActor")
+      val typedScalaIOActor: ActorRef[ScalaIORequest] =
+        context.spawn(TypedScalaIOActor.typedScalaIOActor(100, 0), "typedScalaIOActor")
 
       typedScalaIOActor ! GetSchedule(scalaIOBotActor)
       typedScalaIOActor ! BuyTicket(5, scalaIOBotActor)
