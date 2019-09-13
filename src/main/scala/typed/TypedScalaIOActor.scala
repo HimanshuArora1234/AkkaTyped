@@ -37,6 +37,7 @@ object TypedScalaIOActor {
     context.log.info(s"TypedScalaIOActor received the following message: $message")
 
     message match {
+
       case BuyTicket(qty, senderActor) =>
         if (qty <= quantity) {
           senderActor ! Message(s"Congratulations !! you have successfully booked $qty tickets of Scala.IO", context.self)
