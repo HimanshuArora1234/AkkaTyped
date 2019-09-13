@@ -1,6 +1,6 @@
-package Untyped
+package untyped
 
-import Untyped.UntypedScalaIOActor._
+import untyped.UntypedScalaIOActor._
 import akka.actor.{Actor, Props}
 import com.typesafe.scalalogging.LazyLogging
 

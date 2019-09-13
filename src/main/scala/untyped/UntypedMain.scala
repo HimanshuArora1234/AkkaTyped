@@ -1,8 +1,8 @@
-package Untyped
+package untyped
 
 import java.util.concurrent.TimeUnit
 
-import Untyped.UntypedScalaIOActor.{BuyTicket, Donate, FundBalance, GetSchedule, TicketsLeft}
+import untyped.UntypedScalaIOActor.{BuyTicket, Donate, FundBalance, GetSchedule, TicketsLeft}
 import akka.actor.{ActorRef, ActorSystem}
 import akka.pattern.ask
 import akka.util.Timeout

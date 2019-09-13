@@ -20,6 +20,8 @@ object TypedMain extends App {
       typedScalaIOActor ! TicketsLeft(scalaIOBotActor)
       typedScalaIOActor ! FundBalance(scalaIOBotActor)
 
+      //typedScalaIOActor ! "String type message"
+
       Behavior.stopped
     }
 
