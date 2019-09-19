@@ -17,4 +17,4 @@ http://tiny.cc/ej9ncz
     2. Make donation
     3. Number of tickets available
     4. Fund(donation) collected
-    5. Schedule of Scala.IO
+    5. Dates of Scala.IO
