@@ -41,7 +41,7 @@ object TypedScalaIOActor {
       case BuyTicket(qty, senderActor) =>
         if (qty <= quantity) {
           senderActor ! Message(s"Congratulations !! you have successfully booked $qty tickets of Scala.IO", context.self)
-          typedScalaIOActor(quantity - qty, amt)
+          typedScalaIOActor(quantity - qty, amt)   // Behaviour mutation
         } else {
           senderActor ! Message("Oops !! can't fulfill your request because of shortage of tickets", context.self)
           Behavior.same

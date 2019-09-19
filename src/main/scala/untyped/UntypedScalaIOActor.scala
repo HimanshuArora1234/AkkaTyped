@@ -17,7 +17,7 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
 
     case BuyTicket(quantity) =>
       if (numberOfTickets >= quantity) {
-        numberOfTickets = numberOfTickets - quantity
+        numberOfTickets = numberOfTickets - quantity // State mutation
         sender ! s"Congratulations !! you have successfully booked $quantity tickets of Scala.IO"
       } else {
         sender ! "Oops !! can't fulfill your request because of shortage of tickets"
