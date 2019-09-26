@@ -65,15 +65,4 @@ object UntypedMain extends App with LazyLogging {
       logger.info(s"Scala.IO fund balance = $value")
     case Failure(exception) => logger.error("Error occurred while asking for fund balance", exception)
   }
-
-  /*Thread.sleep(1000)
-
-  val eventualUnhandledMsgReply: Future[Any] = untypedScalaIOActor ? "Hello"
-
-  eventualUnhandledMsgReply onComplete {
-    case Success(value) =>
-      logger.info(s"Unhandled msg reply = $value")
-    case Failure(exception) => logger.error("Error occurred while sending unhandled message", exception)
-  }*/
-
 }

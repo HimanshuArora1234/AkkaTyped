@@ -36,11 +36,11 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
   }
 
 
-  /*override def unhandled(message: Any): Unit = {
+  override def unhandled(message: Any): Unit = {
     message match {
       case _  => logger.error(s"UntypedScalaIOActor can't handle $message")
     }
-  }*/
+  }
 }
 
 object UntypedScalaIOActor {
