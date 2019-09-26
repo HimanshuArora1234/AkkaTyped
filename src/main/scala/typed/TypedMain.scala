@@ -1,10 +1,9 @@
 package typed
 
 import akka.NotUsed
-import akka.actor.Actor
 import akka.actor.typed.scaladsl.Behaviors
 import akka.actor.typed.{ActorRef, ActorSystem, Behavior}
-import typed.TypedScalaIOActor.{BuyTicket, Donate, FundBalance, GetSchedule, ScalaIORequest, ScalaIOResponse, TicketsLeft}
+import typed.TypedScalaIOActor._
 
 object TypedMain extends App {
 
@@ -24,7 +23,7 @@ object TypedMain extends App {
 
       //typedScalaIOActor ! "String type message"
 
-      Behavior.empty  // root or main actor doesn't do anything but to spawn the children actors
+      Behavior.empty // root or main actor doesn't do anything but to spawn the children actors
     }
 
   val system = ActorSystem(main, "typed-actor-system")
