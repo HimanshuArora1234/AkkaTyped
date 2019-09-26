@@ -17,6 +17,7 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
   override def receive: Receive = {     // PartialFunction[Any, Unit]
 
     case BuyTicket(quantity) =>
+      logger.info(s"UntypedScalaIOActor received BuyTicket($quantity) message")
       if (numberOfTickets >= quantity) {
         numberOfTickets = numberOfTickets - quantity // State mutation
         sender ! s"Congratulations !! you have successfully booked $quantity tickets of Scala.IO"
@@ -25,14 +26,21 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
       }
 
     case Donate(amt) =>
+      logger.info(s"UntypedScalaIOActor received Donate($amt) message")
       fund = fund + amt
       sender ! s"Scala.IO is grateful to you for your generous donation of $amt euros"
 
-    case TicketsLeft => sender ! numberOfTickets
+    case TicketsLeft =>
+      logger.info(s"UntypedScalaIOActor received TicketsLeft message")
+      sender ! numberOfTickets
 
-    case FundBalance => sender ! fund
+    case FundBalance =>
+      logger.info(s"UntypedScalaIOActor received FundBalance message")
+      sender ! fund
 
-    case GetSchedule => sender ! "29 - 31 Oct 2019"
+    case GetSchedule =>
+      logger.info(s"UntypedScalaIOActor received GetSchedule message")
+      sender ! "29 - 31 Oct 2019"
   }
 
 
