@@ -13,7 +13,8 @@ class UntypedScalaIOActor extends Actor with LazyLogging {
   private var numberOfTickets: Int = 100
   private var fund: Double = 0.0
 
-  override def receive: Receive = {
+  // Actor behaviour
+  override def receive: Receive = {     // PartialFunction[Any, Unit]
 
     case BuyTicket(quantity) =>
       if (numberOfTickets >= quantity) {
@@ -56,6 +57,6 @@ object UntypedScalaIOActor {
   case object GetSchedule
 
 
-  // Factory of AccountActor, props for configuration
+  // Factory of UntypedScalaIOActor, props for configuration
   def props: Props = Props[UntypedScalaIOActor]
 }

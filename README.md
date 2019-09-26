@@ -5,6 +5,8 @@ Source code of my Scala.IO talk on Akka actors &amp; Akka-Typed
 http://tiny.cc/ej9ncz
 
 ## Actor specifications
+
+We want to create a Scala.IO Actor with following specifications
     
 ### States
     
@@ -17,4 +19,4 @@ http://tiny.cc/ej9ncz
     2. Make donation
     3. Number of tickets available
     4. Fund(donation) collected
-    5. Schedule of Scala.IO
+    5. Schedule(dates) of Scala.IO
